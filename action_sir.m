@@ -1,3 +1,5 @@
+% test123 test123
+
 function [s_n, i_n, r_n] = action_sir(s, i, r, beta, gamma)
 % Advance an SIR model one timestep
 %
@@ -31,4 +33,5 @@ s_n = max(s_n, 0);
 i_n = max(i_n, 0);
 r_n = max(r_n, 0);
     
+
 end
