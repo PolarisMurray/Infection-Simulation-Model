@@ -26,7 +26,11 @@ function [s_n, i_n, r_n, d_n] = action_sir(s, i, r, d, beta, gamma, mu)
 infected = beta * i * s;
 recovered = gamma * i;
 dead = mu * i;
-    
+
+infected = min(infected, s);
+recovered = min(recovered, i);
+dead = min(dead, i - recovered);
+
 % Update state
 s_n = s - infected;
 i_n = i + infected - recovered;
@@ -42,4 +46,5 @@ d_n = max(d_n, 0);
     
 
 end
+
 
